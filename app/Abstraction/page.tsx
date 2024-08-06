@@ -1,47 +1,33 @@
 import React from 'react'
 
-// Abstract class defining the blueprint
-abstract class Person {
-  protected pname: string
-  protected age: number
-
-  constructor(name: string, age: number) {
-    this.pname = name
-    this.age = age
+abstract class Vehicle {
+  protected cartype: string
+  constructor(type: string) {
+    this.cartype = type
   }
 
-  // Abstract method to be implemented by subclasses
-  abstract getName(): string
+  abstract gettypea(): String
 
-  // Abstract method to be implemented by subclasses
-  abstract getAge(): number
-
-  // Concrete method that can be used as is
-  public setName(name: string) {
-    this.pname = name
-  }
+  abstract settype(type: string): void
 }
 
-// Concrete class extending the abstract class
-class Man extends Person {
-  constructor(name: string, age: number) {
-    super(name, age)
+class Car extends Vehicle {
+  constructor(type: string) {
+    super(type)
   }
 
-  // Providing concrete implementation of the abstract methods
-  public getName(): string {
-    return this.pname
+  // Concrete implementation of the abstract methods
+  public gettypea(): String {
+    return this.cartype
   }
-
-  public getAge(): number {
-    return this.age
+  public settype(type: string): void {
+    this.cartype = type
   }
 }
-
 const Abstraction = () => {
-  const person1 = new Man('Hamza', 22)
+  const person1 = new Car('Car')
 
-  return <div>{person1.getName()}</div>
+  return <div>{person1.gettypea()}</div>
 }
 
 export default Abstraction
